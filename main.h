@@ -6,7 +6,8 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
-Int _putchar(char c);
-Void print_number(int n);
+int _putchar(char c);
+void print_number(int n);
+int _strlen(const char *str);
 
 #endif
