@@ -4,6 +4,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
+
 int _printf(const char *format, ...);
+Void _printf(char *format, ...)
 
 #endif
