@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -25,7 +24,7 @@ void print_number(int n)
  * _printf - a function that prints integers and handles %d and %i specifiers
  * @format: format of the string
 */
-void _printf(char *format, ...)
+void _printf_int(char *format, ...)
 {
 	va_list ap;
 
