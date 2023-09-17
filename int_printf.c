@@ -25,7 +25,7 @@ void print_number(int n)
  *               %i specifiers
  * @format: format of the string
 */
-void _printf_int(char *format, ...)
+void _printf_int(const char *format, ...)
 {
 	va_list ap;
 	int v;
