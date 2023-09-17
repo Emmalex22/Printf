@@ -21,12 +21,14 @@ void print_number(int n)
 	_putchar('0' + n % 10);
 }
 /**
- * _printf - a function that prints integers and handles %d and %i specifiers
+ * _printf_int - a function that prints integers and handles %d and
+ *               %i specifiers
  * @format: format of the string
 */
 void _printf_int(char *format, ...)
 {
 	va_list ap;
+	int v;
 
 	va_start(ap, format);
 
@@ -34,8 +36,7 @@ void _printf_int(char *format, ...)
 	{
 		if (*format == '%' && (*(format + 1) == 'i' || *(format + 1) == 'd'))
 		{
-			int v = va_arg(ap, int);
-
+			v = va_arg(ap, int);
 			if (v < 0)
 			{
 				_putchar('-');
@@ -47,4 +48,3 @@ void _printf_int(char *format, ...)
 	}
 	va_end(ap);
 }
-
