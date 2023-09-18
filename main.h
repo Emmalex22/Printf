@@ -4,11 +4,14 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void print_number(int n);
+int print_number(int n);
 int _strlen(const char *str);
-void _printf_int(const char *format, ...);
+int _printf_int(const char *format, ...);
+int calc(int n);
+int *mallc(unsigned int size);
 
 #endif
