@@ -12,6 +12,5 @@ int print_number(int n);
 int _strlen(const char *str);
 int _printf_int(const char *format, ...);
 int calc(int n);
-int *mallc(unsigned int size);
 
 #endif
