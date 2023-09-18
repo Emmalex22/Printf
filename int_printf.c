@@ -11,22 +11,6 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * mallc - a function that allocates memory for integers
- * @size: size
- * Return: a pointer
-*/
-/**
-*int *mallc(unsigned int size)
-*{
-*	if (size == 0)
-*		return (NULL);
-*	int *p = malloc(size * sizeof(int));
-*
-*	if (!p)
-*		return (NULL);
-*	return (p);
-}*/
-/**
  * calc - a function that calculates digits of a number
  * @t: number
  * Return: the result
