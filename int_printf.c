@@ -47,7 +47,7 @@ int print_number(int n)
 	count = 0;
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		n = -n;
 		count++;
 	}
@@ -58,7 +58,7 @@ int print_number(int n)
 	}
 	for (i = num_dig - 1; i >= 0; i--)
 	{
-		_putchar('0' + p[i]);
+		putchar('0' + p[i]);
 		count++;
 	}
 	free(p);
@@ -91,7 +91,7 @@ int _printf_int(const char *format, ...)
 				break;
 			if (*format == '%')
 			{
-				_putchar('%');
+				putchar('%');
 				count++;
 			}
 			else
@@ -103,15 +103,15 @@ int _printf_int(const char *format, ...)
 				}
 				else
 				{
-					_putchar('%');
-					_putchar(*format);
+					putchar('%');
+					putchar(*format);
 					count += 2;
 				}
 			}
 		}
 		else
 		{
-			_putchar(*format);
+			putchar(*format);
 			count++;
 		}
 		format++;
