@@ -74,11 +74,11 @@ int _printf_int(const char *format, ...)
 {
 	int v;
 	int count = 0;
-	va_list ap;
+	va_list arg_list;
 
 	if (!format)
 		return (-1);
-	va_start(ap, format);
+	va_start(arg_list, format);
 
 	while (*format)
 	{
@@ -96,7 +96,7 @@ int _printf_int(const char *format, ...)
 			{
 				if (*format == 'i' || *format == 'd')
 				{
-					v = va_arg(ap, int);
+					v = va_arg(arg_list, int);
 					count += print_number(v);
 				}
 				else
@@ -114,6 +114,6 @@ int _printf_int(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(ap);
+	va_end(arg_list);
 	return (count);
 }
