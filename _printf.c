@@ -1,63 +1,49 @@
 #include "main.h"
-
 /**
- * _printf - Prints output according to a format.
- * @format: A character string containing format specifiers.
- * Return: The number of characters printed (excluding the NULL byte).
- */
-
+ * _printf - a function that chooses the best function to handle diffrent
+ *           specifiers
+ * @format: format of specifier
+ * Return: counts numbers of characters printed
+*/
 int _printf(const char *format, ...)
 {
-	int print_char = 0;
-	va_list arg_list;
+	va_list ap;
+	int count = 0;
 
-	if (format == NULL)
+	va_start(ap, format);
+
+	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
-
-	va_start(arg_list, format);
-
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
 	while (*format)
 	{
-		if (*format != '%')
-		{
-			write(1, format, 1);
-			print_char++;
-		}
-		else
+		if (*format == '%' && *(format + 1))
 		{
 			format++;
-			if (*format == '\0')
-				break;
-			else if (*format == 'c')
+			if (*format == '%')
 			{
-				int c = va_arg(arg_list, int);
-				write(1, &c, 1);
-				print_char++;
+				_putchar('%');
+				count++;
 			}
-			else if (*format == '%')
+			else
 			{
-				write(1, format, 1);
-				print_char++;
-			}
-			else if (*format == 's')
-			{
-				char *str = va_arg(arg_list, char *);
-				int str_len = 0;
-
-				while (str && str[str_len])
-					str_len++;
-
-				if (str)
+				if (*format == 'i' || *format == 'd')
 				{
-					write(1, str, str_len);
-					print_char += str_len;
+					int v = va_arg(ap, int);
+
+					count += print_int(v);
 				}
 			}
 		}
+		else
+		{
+			_putchar(*format);
+			count++;
+		}
 		format++;
 	}
-	va_end(arg_list);
-
-	return (print_char);
+	va_end(ap);
+	return (count);
 }
 

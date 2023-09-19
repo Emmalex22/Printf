@@ -9,9 +9,8 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_number(int n);
 int _strlen(const char *str);
-int _printf_int(const char *format, ...);
+int print_int(const char *format, ...);
 int calc(int n);
 
 #endif

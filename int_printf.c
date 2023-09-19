@@ -31,11 +31,11 @@ int calc(int t)
 	return (s);
 }
 /**
- * print_number - a function that prints integers
+ * print_int - a function that prints integers
  * @n: the integer
  * Return: nuùber of charactes printed
 */
-int print_number(int n)
+int print_int(int n)
 {
 	int num_dig = calc(n);
 	int i, count;
@@ -62,60 +62,5 @@ int print_number(int n)
 		count++;
 	}
 	free(p);
-	return (count);
-}
-/**
- * _printf_int - a function that prints integers and handles %d and
- *               %i specifiers
- * @format: format of the string
- * Return: number of characters printed
-*/
-int _printf_int(const char *format, ...)
-{
-	int v;
-	int count = 0;
-	va_list arg_list;
-
-	if (format == NULL || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	va_start(arg_list, format);
-
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == '%')
-			{
-				putchar('%');
-				count++;
-			}
-			else
-			{
-				if (*format == 'i' || *format == 'd')
-				{
-					v = va_arg(arg_list, int);
-					count += print_number(v);
-				}
-				else
-				{
-					putchar('%');
-					putchar(*format);
-					count += 2;
-				}
-			}
-		}
-		else
-		{
-			putchar(*format);
-			count++;
-		}
-		format++;
-	}
-	va_end(arg_list);
 	return (count);
 }
