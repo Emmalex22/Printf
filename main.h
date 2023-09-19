@@ -10,7 +10,7 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _strlen(const char *str);
-int print_int(const char *format, ...);
+int print_int(int n);
 int calc(int n);
 
 #endif
