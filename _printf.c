@@ -33,6 +33,22 @@ int _printf(const char *format, ...)
 					int v = va_arg(ap, int);
 
 					count += print_int(v);
+				
+				}
+				else
+				{
+					if (*format == 'c')
+					{
+						char c = va_arg(ap, int);
+						count += printf_char(c);
+					}
+					else
+					{
+						if (*format == 's')
+						{
+							count += printf_str(va_arg(ap, char *));
+						}
+					}
 				}
 			}
 		}

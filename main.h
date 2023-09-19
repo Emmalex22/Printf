@@ -12,5 +12,7 @@ int _putchar(char c);
 int _strlen(const char *str);
 int print_int(int n);
 int calc(int n);
+int printf_str(char *str);
+int printf_char(char c);
 
 #endif
